@@ -15,8 +15,11 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -64,12 +67,22 @@ fun HomePage(
                     .padding(8.dp)
             ) {
                 items(DOWNLOAD_CARDS) { section ->
+
+                    var count by remember { mutableIntStateOf( homepageViewmodel.getCounter(section.id)) }
+
                     DownloadCardCell(
                         downloadCard = section,
+                        counter = count,
                         onCountUpButton = {
                             openAlertDialog.value = true
                             homepageViewmodel.printData = section
-                        }
+                            count++
+                            homepageViewmodel.setCounter(section.id, count)
+                        },
+                        onCountDownButton = {
+                            count--
+                            homepageViewmodel.setCounter(section.id, count)
+                        },
                     )
                 }
             }

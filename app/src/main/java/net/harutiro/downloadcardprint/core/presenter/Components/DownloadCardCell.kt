@@ -28,10 +28,9 @@ import net.harutiro.downloadcardprint.core.entity.DownloadCard
 fun DownloadCardCell(
     downloadCard: DownloadCard,
     onCountUpButton: () -> Unit = {},
+    onCountDownButton: () -> Unit = {},
+    counter: Int
 ){
-
-    var counter by remember { mutableIntStateOf(0) }
-
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -61,11 +60,10 @@ fun DownloadCardCell(
             Counter(
                 count = counter,
                 countUp = {
-                    counter++
                     onCountUpButton()
                 },
                 countDown = {
-                    counter--
+                    onCountDownButton()
                 }
             )
         }
@@ -114,6 +112,8 @@ fun DownloadCardCellPreview(){
             password = "test_password",
             downloadUrl = "https://booth.pm/ja/items/5235288",
             circle = "システム工学研究会",
-        )
+            id = "1"
+        ),
+        counter = 3
     )
 }

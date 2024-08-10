@@ -8,6 +8,7 @@ data class DownloadCard(
     val password: String,
     val downloadUrl: String,
     val circle: String,
+    val id: String,
 )
 
 val DOWNLOAD_CARDS = listOf(
@@ -17,5 +18,6 @@ val DOWNLOAD_CARDS = listOf(
         password = "kadai^yaritakunai#sysken",
         downloadUrl = "https://booth.pm/ja/items/5235288",
         circle = "システム工学研究会",
+        id = "1"
     ),
 )
