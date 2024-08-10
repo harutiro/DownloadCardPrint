@@ -8,8 +8,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Print
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,7 +35,8 @@ fun DownloadCardCell(
     downloadCard: DownloadCard,
     onCountUpButton: () -> Unit = {},
     onCountDownButton: () -> Unit = {},
-    counter: Int
+    counter: Int,
+    onPrintButton: () -> Unit = {},
 ){
     Card(
         modifier = Modifier
@@ -52,7 +57,7 @@ fun DownloadCardCell(
             )
 
             Row(
-                horizontalArrangement = Arrangement.Center,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically  // 垂直方向に中央揃え
             ){
                 Image(
@@ -61,6 +66,10 @@ fun DownloadCardCell(
                     modifier = Modifier
                         .height(76.dp)
                 )
+                
+                IconButton(onClick = onPrintButton) {
+                    Icon(imageVector = Icons.Filled.Print, contentDescription = "Settings")
+                }
 
                 Spacer(modifier = Modifier.weight(1f))
 

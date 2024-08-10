@@ -90,6 +90,9 @@ fun HomePage(
                             count--
                             homepageViewmodel.setCounter(section.id, count)
                         },
+                        onPrintButton = {
+                            homepageViewmodel.printDownloadCard(section)
+                        }
                     )
                 }
             }

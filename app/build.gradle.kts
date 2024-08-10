@@ -68,4 +68,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(files("libs/androidprintsdk.jar"))
     implementation(libs.zxing.android.embedded)
+    implementation(libs.androidx.material.icons.extended)
+
 }
