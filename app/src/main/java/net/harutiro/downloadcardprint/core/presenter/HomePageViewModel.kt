@@ -45,4 +45,8 @@ class HomePageViewModel: ViewModel(){
         downloadCardDbRepository?.saveData(key, count)
     }
 
+    fun printTest(){
+        printerRepository?.printTest()
+    }
+
 }

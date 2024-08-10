@@ -47,6 +47,13 @@ fun HomePage(
             .fillMaxSize()
     ) { innerPadding ->
         Column {
+
+//            Button(onClick = {
+//                homepageViewmodel.printTest()
+//            }){
+//                Text("テスト")
+//            }
+
             PairingSetting(
                 onPairing = {
                     if(homepageViewmodel.printerDevice.value != null){

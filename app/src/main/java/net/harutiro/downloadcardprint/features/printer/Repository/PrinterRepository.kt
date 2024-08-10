@@ -125,7 +125,7 @@ class PrinterRepository(
                 printer?.printText("\n==============================\n")
 
                 // 主な情報
-                printer?.printText("\n ${downloadCard.title} \n")
+                printer?.printText("\n  ${downloadCard.title} \n")
                 printer?.printText("\n==============================\n")
 
                 // SNS情報など
@@ -134,7 +134,7 @@ class PrinterRepository(
                     PrinterConstants.Command.ALIGN_LEFT
                 )
                 printer?.setCharacterMultiple(0, 0)
-                sb.append("${downloadCard.password}\n")
+                sb.append("Password: ${downloadCard.password}\n")
                 printer?.printText(sb.toString())
                 printer?.printText("\n==============================\n")
 

@@ -2,7 +2,9 @@ package net.harutiro.downloadcardprint.core.presenter.Components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -35,21 +37,13 @@ fun DownloadCardCell(
         modifier = Modifier
             .fillMaxWidth()
     ){
-        Row(
+        Column(
             modifier = Modifier
                 .padding(16.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically  // 垂直方向に中央揃え
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ){
-            Image(
-                painter = painterResource(downloadCard.thumbnail),
-                contentDescription = downloadCard.title,
-                modifier = Modifier
-                    .height(76.dp)
-            )
             Text(
                 modifier = Modifier
-                    .weight(1f)
                     .padding(start = 16.dp),
                 text = downloadCard.title,
                 fontSize = 16.sp,
@@ -57,16 +51,31 @@ fun DownloadCardCell(
                 overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis  // 長い場合に省略記号を表示
             )
 
-            Counter(
-                count = counter,
-                countUp = {
-                    onCountUpButton()
-                },
-                countDown = {
-                    onCountDownButton()
-                }
-            )
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically  // 垂直方向に中央揃え
+            ){
+                Image(
+                    painter = painterResource(downloadCard.thumbnail),
+                    contentDescription = downloadCard.title,
+                    modifier = Modifier
+                        .height(76.dp)
+                )
+
+                Spacer(modifier = Modifier.weight(1f))
+
+                Counter(
+                    count = counter,
+                    countUp = {
+                        onCountUpButton()
+                    },
+                    countDown = {
+                        onCountDownButton()
+                    }
+                )
+            }
         }
+
     }
 }
 
