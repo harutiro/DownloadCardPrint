@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
@@ -118,17 +119,38 @@ class PrinterRepository(
                     PrinterConstants.Command.ALIGN,
                     PrinterConstants.Command.ALIGN_CENTER
                 )
-                // タイトル部分
-                printer?.setCharacterMultiple(1, 1)
-                printer?.printText("${downloadCard.circle}\n")
-                printer?.setCharacterMultiple(0, 0)
+                // サークル名
+                printer?.printText("Circle Name \n")
+
+                val cpCircleImage = CanvasPrint()
+                cpCircleImage.init(PrinterType.T9)
+
+                val autoLineBreakCircleText = printUtils.autoLineBreak(downloadCard.circle,12)
+
+                val bitmapCircleImage = printUtils.textToBitmap(autoLineBreakCircleText, 30f, Color.BLACK)
+                cpCircleImage.drawImage(bitmapCircleImage)
+
+                printer?.printImage(cpCircleImage.canvasImage)
+
+
                 printer?.printText("\n==============================\n")
 
-                // 主な情報
-                printer?.printText("\n  ${downloadCard.title} \n")
+                // 本のタイトル
+                printer?.printText("Book Title \n")
+
+                val cpTitleImage = CanvasPrint()
+                cpTitleImage.init(PrinterType.T9)
+
+                val autoLineBreakTitleText = printUtils.autoLineBreak(downloadCard.title,12)
+
+                val bitmapTitleImage = printUtils.textToBitmap(autoLineBreakTitleText, 30f, Color.BLACK)
+                cpTitleImage.drawImage(bitmapTitleImage)
+
+                printer?.printImage(cpTitleImage.canvasImage)
+
                 printer?.printText("\n==============================\n")
 
-                // SNS情報など
+                // パスワード
                 printer?.setPrinter(
                     PrinterConstants.Command.ALIGN,
                     PrinterConstants.Command.ALIGN_LEFT
@@ -138,7 +160,7 @@ class PrinterRepository(
                 printer?.printText(sb.toString())
                 printer?.printText("\n==============================\n")
 
-                // WebサイトのQRコード
+                // ダウンロードようのLink
                 printer?.setPrinter(
                     PrinterConstants.Command.ALIGN,
                     PrinterConstants.Command.ALIGN_CENTER
@@ -182,7 +204,19 @@ class PrinterRepository(
     fun printTest() {
         Thread {
             try {
-                printer?.printText("Hello World")
+//                printer?.printText("Hello World")
+
+                val cpImage = CanvasPrint()
+                cpImage.init(PrinterType.T9)
+
+                val autoLineBreakTitle = printUtils.autoLineBreak("こんにちはこんにちはこんにちはこんにちは",12)
+                Log.d(TAG, "autoLineBreakTitle: $autoLineBreakTitle")
+
+                val bitmapImage = printUtils.textToBitmap(autoLineBreakTitle, 30f, Color.BLACK)
+                cpImage.drawImage(bitmapImage)
+
+                printer?.printImage(cpImage.canvasImage)
+
                 printer?.setPrinter(PrinterConstants.Command.PRINT_AND_WAKE_PAPER_BY_LINE, 2)
             } catch (e: Exception) {
                 Log.e(TAG, "Error during printing", e)

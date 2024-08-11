@@ -48,11 +48,11 @@ fun HomePage(
     ) { innerPadding ->
         Column {
 
-//            Button(onClick = {
-//                homepageViewmodel.printTest()
-//            }){
-//                Text("テスト")
-//            }
+            Button(onClick = {
+                homepageViewmodel.printTest()
+            }){
+                Text("テスト")
+            }
 
             PairingSetting(
                 onPairing = {

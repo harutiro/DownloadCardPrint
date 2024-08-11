@@ -13,59 +13,59 @@ data class DownloadCard(
 
 val DOWNLOAD_CARDS = listOf(
     DownloadCard(
-        title = "Sysken's technical book",
+        title = "シス研の技術本",
         thumbnail = R.drawable.sysken_book,
         password = "kadai^yaritakunai#sysken",
         downloadUrl = "https://sysken.booth.pm/items/5235288",
-        circle = "System Engineering Team",
+        circle = "システム工学研究会",
         id = "1"
     ),
     DownloadCard(
-        title = "Computer hardware learned from standards",
+        title = "企画から知るコンピュータハードウェア",
         thumbnail = R.drawable.hardware_book,
         password = "sysken@peguin#hogehoge",
         downloadUrl = "https://sysken.booth.pm/items/5234962",
-        circle = "Luciano Lab",
+        circle = "Luciano研究所",
         id = "2"
     ),
     DownloadCard(
-        title = "esa book",
+        title = "esaをCMSにしてGitHubActionsとhugoを用いて自動でホームページを更新する方法の考案",
         thumbnail = R.drawable.esa_book,
         password = "piyopiyo!sysken#choco",
         downloadUrl = "https://sysken.booth.pm/items/5235271",
-        circle = "System Engineering Team",
+        circle = "システム工学研究会",
         id = "3"
     ),
     DownloadCard(
-        title = "A book on getting the number of terminals from ICMP and ARP using Golang",
+        title = "ICMPとARPを使って端末数を取得する本 with Golang",
         thumbnail = R.drawable.arp_book,
         password = "icmp@arp#ping\$www",
         downloadUrl = "https://sysken.booth.pm/items/5282358",
-        circle = "System Engineering Team",
+        circle = "システム工学研究会",
         id = "4"
     ),
     DownloadCard(
-        title = "Super convenient home server recipes made with Proxmox",
+        title = "Proxmoxで作る超便利な自宅サーバーレシピ",
         thumbnail = R.drawable.proxmox_book,
         password = "proxmox@benri#sugoi",
         downloadUrl = "https://sysken.booth.pm/items/5730612",
-        circle = "Luciano Lab",
+        circle = "Luciano研究所",
         id = "5"
     ),
     DownloadCard(
-        title = "Google search and error resolution methods - Use generation AI too!",
+        title = "Google検索及びエラーの解決方法　生成AIも活用使用！　これは本と言い張る版",
         thumbnail = R.drawable.google_search_book,
         password = "google@chatgpt#thisbook",
         downloadUrl = "https://sysken.booth.pm/items/5730620",
-        circle = "System Engineering Team",
+        circle = "システム工学研究会",
         id = "6"
     ),
     DownloadCard(
-        title = "A design escape route taken by a Nondezainer programmer.",
+        title = "のんでざいなーのプログラマーによる、デザインのにげかた。これは本と言い張る版",
         thumbnail = R.drawable.design_book,
         password = "design\$is@kantan",
         downloadUrl = "https://sysken.booth.pm/items/5730626",
-        circle = "System Engineering Team",
+        circle = "システム工学研究会",
         id = "7"
     ),
 )
